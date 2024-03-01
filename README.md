@@ -2,11 +2,11 @@
 
 This repo will classify common items on e-commerce website,
 
-The original dataset is [Product 10K](https://www.kaggle.com/competitions/products-10k), with 141K images and amost 10K labels. I have choose and labeled 650 detailed labels with roughly 28K images and use it for benchmark.
+The original dataset is [Product 10K](https://www.kaggle.com/competitions/products-10k), with 141K images and amost 10K labels. I have choosen and labeled 650 detailed labels with roughly 1k original labels and 28K images and use it for benchmark.
 
 Three different appoarchs will be employeed to classify images
 
-- **[ResNet50](./ResNet.ipynb) ** Accuracy: 83.82
+- **[ResNet50](./ResNet.ipynb)** Accuracy: 83.82
 - **[Vision Transformer](./ViT.ipynb)** (ViT-base-patch-16) Accuracy: 86.26
 - **[CLIP]()**
   - [Zero-shot](./CLIP-zeroshot.ipynb) Accuracy: 34.5
