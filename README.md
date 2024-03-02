@@ -7,7 +7,7 @@ The original dataset is [Product 10K](https://www.kaggle.com/competitions/produc
 Three different appoarchs will be employeed to classify images
 
 - **[ResNet50](./ResNet.ipynb)** Accuracy: 83.82
-- **[Vision Transformer](./ViT.ipynb)** (ViT-base-patch-16) Accuracy: 86.26
+- **[Vision Transformer](./ViT.ipynb)** (ViT-base-patch-16) Accuracy: 86.82
 - **[CLIP]()**
   - [Zero-shot](./CLIP-zeroshot.ipynb) Accuracy: 34.5
   - [Fine-tune](./CLIP-finetune.ipynb) Accuracy: 51.56
