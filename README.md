@@ -6,14 +6,12 @@ The original dataset is [Product 10K](https://www.kaggle.com/competitions/produc
 
 Three different appoarchs will be employeed to classify images
 
-- **[ResNet50](./ResNet.ipynb)** Accuracy: 83.82
-- **[Vision Transformer](./ViT.ipynb)** (ViT-base-patch-16) Accuracy: 86.82
+- **[ResNet50](./ResNet.ipynb)** Accuracy: 83.82 (Augumented: 83.02)
+- **[Vision Transformer](./ViT.ipynb)** (ViT-base-patch-16) Accuracy: 86.82 (Augumented: 86.89)
 - **[CLIP]()**
-  - [Zero-shot](./CLIP-zeroshot.ipynb) Accuracy: 34.5
+  - [Zero-shot](./CLIP-zeroshot.ipynb) Accuracy: 36.54
   - [Fine-tune](./CLIP-finetune.ipynb) Accuracy: 51.56
 
 With **CLIP**, I believe there are plenty room for improvement, since I can only use `batch_size=32`, which means it can only proceed 1 samples with 32 class at a time. Increase the `batch_size` will significantly improve model performance.
-
-There should be others technic to efficiently fine-tune the models such as using augumentation by generating others image samples from random cut, zoom, blur, cover, ... but due to the limit in hardware, currently I'm unable to implement them.
 
 You can map new labels to original dataset via [reduced_train.csv](./reduced_train.csv) and [reduced_test.csv](./reduced_test.csv)
