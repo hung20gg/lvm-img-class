@@ -16,3 +16,10 @@ Three different appoarchs will be employeed to classify images
 With **CLIP**, I believe there are plenty room for improvement, since I can only use `batch_size=32`, which means it can only proceed 1 samples with 32 class at a time. Increase the `batch_size` will significantly improve model performance.
 
 You can map new labels to original dataset via [reduced_train.csv](./reduced_train.csv) and [reduced_test.csv](./reduced_test.csv)
+
+### Device setting
+
+Due to lack of resources, I am unable to load all of the image into one big giant dataset. SO I have to chunks it to multiple dataloaders. 
+
+There are other method for sampling on dataloader, and the most basic appoarch is to process items only when using it (process everything such as open image and `transform` in method `__getitem()__` of `Dataset`). However this method only efficent for few first epoch. Loading and transforming it cost roughly equivalent amount of time as training (even more if SSD speed is low). So I premake all the dataloader before, and cost only few second for reading file from hard drive.
+
