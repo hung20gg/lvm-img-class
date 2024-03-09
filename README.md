@@ -8,7 +8,7 @@ Three different appoarchs will be employeed to classify images
 
 - **[ResNet50](./ResNet.ipynb)** Accuracy: 83.82 (Augmented: 83.02)
 - **[Vision Transformer](./ViT.ipynb)** *(ViT-base-patch-16)* Accuracy: 86.82 (Augmented: 86.89)
-- **[FasterViT](https://arxiv.org/abs/2306.06189)** *(fastervit_2_224)* Accuracy: 89.29
+- **[FasterViT](https://arxiv.org/abs/2306.06189)** *(fastervit_2_224)* Accuracy: 90.77 (still increasing)
 - **[CLIP]()**
   - [Zero-shot](./CLIP-zeroshot.ipynb) Accuracy: 36.54
   - [Fine-tune](./CLIP-finetune.ipynb) Accuracy: 51.56
