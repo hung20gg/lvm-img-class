@@ -33,9 +33,12 @@ def _cfg(url='', **kwargs):
     }
     
 default_cfgs = {
-     'caformer_s36_in21ft1k': _cfg(
+    'caformer_s36_in21ft1k': _cfg(
         url='https://huggingface.co/sail/dl/resolve/main/caformer/caformer_s36_in21ft1k.pth'),
-    
+    'caformer_m36_in21ft1k': _cfg(
+        url='https://huggingface.co/sail/dl/resolve/main/caformer/caformer_m36_in21ft1k.pth'),
+    'caformer_b36_in21ft1k': _cfg(
+        url='https://huggingface.co/sail/dl/resolve/main/caformer/caformer_b36_in21ft1k.pth'),
 }
 
 class Downsampling(nn.Module):
@@ -506,6 +509,34 @@ def caformer_s36_in21ft1k(pretrained=False, **kwargs):
         hf_hub_download(repo_id="sail/dl", filename='caformer/caformer_s36_in21ft1k.pth', local_dir=f'{MODEL_PATH}/download')
         
         model.load_state_dict(torch.load(f'{MODEL_PATH}/download/caformer/caformer_s36_in21ft1k.pth'))
+    return model
+
+def caformer_m36_in21ft1k(pretrained=False, **kwargs):
+    model = MetaFormer(
+        depths=[3, 12, 18, 3],
+        dims=[96, 192, 384, 576],
+        token_mixers=[SepConv, SepConv, Attention, Attention],
+        head_fn=MlpHead,
+        **kwargs)
+    model.default_cfg = default_cfgs['caformer_m36_in21ft1k']
+    if pretrained:
+        hf_hub_download(repo_id="sail/dl", filename='caformer/caformer_m36_in21ft1k.pth', local_dir=f'{MODEL_PATH}/download')
+        
+        model.load_state_dict(torch.load(f'{MODEL_PATH}/download/caformer/caformer_m36_in21ft1k.pth'))
+    return model
+
+def caformer_b36_in21ft1k(pretrained=False, **kwargs):
+    model = MetaFormer(
+        depths=[3, 12, 18, 3],
+        dims=[128, 256, 512, 768],
+        token_mixers=[SepConv, SepConv, Attention, Attention],
+        head_fn=MlpHead,
+        **kwargs)
+    model.default_cfg = default_cfgs['caformer_b36_in21ft1k']
+    if pretrained:
+        hf_hub_download(repo_id="sail/dl", filename='caformer/caformer_b36_in21ft1k.pth', local_dir=f'{MODEL_PATH}/download')
+        
+        model.load_state_dict(torch.load(f'{MODEL_PATH}/download/caformer/caformer_b36_in21ft1k.pth'))
     return model
 
 
