@@ -8,13 +8,16 @@ Three different appoarchs will be employeed to classify images
 
 - **[ResNet50](./ResNet.ipynb)** Accuracy: 83.82 (Augmented: 83.02)
 - **[Vision Transformer](./ViT.ipynb)** *(ViT-base-patch-16)* Accuracy: 86.82 (Augmented: 86.89)
-- **[CAFormer](https://arxiv.org/abs/2210.13452)** 
+- **[CAFormer](https://arxiv.org/abs/2210.13452)**
+
   - *(caformer_s36_in21ft1k)* Accuracy: 87.55
   - *(caformer_b36_in21ft1k)* Accuracy: xx.xx
+- **[FasterViT](https://arxiv.org/abs/2306.06189)**
 
-
-- **[FasterViT](https://arxiv.org/abs/2306.06189)** *(fastervit_2_224)* Accuracy: 90.77 (still increasing)
+  - *(fastervit_2_224)* Accuracy: 91.33
+  - *(fastervit_3_224)* Accuracy: 91.87
 - **[CLIP]()**
+
   - [Zero-shot](./CLIP-zeroshot.ipynb) Accuracy: 36.54
   - [Fine-tune](./CLIP-finetune.ipynb) Accuracy: 51.56
 
@@ -24,7 +27,6 @@ You can map new labels to original dataset via [reduced_train.csv](./reduced_tra
 
 ### Device setting
 
-Due to lack of resources, I am unable to load all of the image into one big giant dataset. SO I have to chunks it to multiple dataloaders. 
+Due to lack of resources, I am unable to load all of the image into one big giant dataset. SO I have to chunks it to multiple dataloaders.
 
-There are other method for sampling on dataloader, and the most basic appoarch is to process items only when using it (process everything such as open image and `transform` in method `__getitem()__` of `Dataset`). However this method only efficent for few first epoch. Loading and transforming it cost roughly equivalent amount of time as training (even more if SSD speed is low). So I premake all the dataloader before, and cost only few second for reading file from hard drive.
-
+There are other method for sampling on dataloader, and the most basic appoarch is to process items only when using it (process everything such as open image and `transform` in method `__getitem()__` of `Dataset`). However this method only efficent for few first epoch. Loading and transforming it cost roughly equivalent amount of time as training (even more if SSD speed is low). So I premake all the dataloader before, save it in `.pt` format, and it costs only few second for reading file from hard drive.
