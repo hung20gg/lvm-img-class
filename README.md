@@ -18,10 +18,10 @@ Three different appoarchs will be employeed to classify images
   - *(fastervit_3_224)* Accuracy: 91.87
 - **[CLIP]()**
 
-  - [Zero-shot](./CLIP-zeroshot.ipynb) Accuracy: 36.54
+  - [Zero-shot](./CLIP-zeroshot.ipynb) Accuracy: 41.33
   - [Fine-tune](./CLIP-finetune.ipynb) Accuracy: 51.56
 
-With **CLIP**, I believe there are plenty room for improvement, since I can only use `batch_size=32`, which means it can only proceed 1 samples with 32 class at a time. Increase the `batch_size` will significantly improve model performance.
+With **CLIP**, I believe there are plenty room for improvement, since I can only use `batch_size=32`, which means it can only proceed 1 samples with 32 class at a time, and the training dataset is small. Increase the `batch_size` will significantly improve model performance.
 
 You can map new labels to original dataset via [reduced_train.csv](./reduced_train.csv) and [reduced_test.csv](./reduced_test.csv)
 
